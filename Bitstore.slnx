@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Bitstore.Application/Bitstore.Application.csproj" />
+  <Project Path="Bitstore.Core/Bitstore.Core.csproj" />
+  <Project Path="Bitstore.DataAccess/Bitstore.DataAccess.csproj" />
+  <Project Path="Bitstore.Infrastructure/Bitstore.Infrastructure.csproj" />
+  <Project Path="Bitstore/Bitstore.csproj" />
+</Solution>

@@ -2,9 +2,9 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/projectSettingsUpdater.xml
+/.idea.Bitstore.iml
 /contentModel.xml
-/.idea.bitstore.iml
+/projectSettingsUpdater.xml
 /modules.xml
 # Ignored default folder with query files
 /queries/

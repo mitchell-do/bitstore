@@ -1,0 +1,6 @@
+@Bitstore_HostAddress = http://localhost:5167
+
+GET {{Bitstore_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
