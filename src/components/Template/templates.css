@@ -1,0 +1,40 @@
+.navigate .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0%;
+  border-radius: 10px;
+  margin: 20px;
+  list-style-type: none;
+  flex-direction: row;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+.navigate .header a {
+  color: white;
+  font-size: 200%;
+}
+.navigate .header li {
+  padding: 10px;
+}
+
+.navigate #storeName {
+  text-decoration: none;
+}
+
+.navigate #storeMenu {
+  text-decoration: none;
+}
+
+/* .navigate #storePageStatusBlock:hover {
+  background-color: #111111;
+  border-radius: 3px;
+} */
+.navigate #storeMenuBlock:hover {
+  background-color: #111111;
+  border-radius: 3px;
+}
+.navigate #storeNameBlock:hover {
+  background-color: #111111;
+  border-radius: 3px;
+}

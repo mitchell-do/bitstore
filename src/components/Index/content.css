@@ -1,0 +1,126 @@
+.content {
+  display: grid;
+  place-items: center;
+  list-style-type: none;
+  margin: 20px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #333333;
+}
+
+.buyAlert {
+  display: flex;
+  grid-area: 1 / 1;
+  flex-direction: column;
+  /* position: absolute; */
+
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 2;
+  color: white;
+  background-color: rgb(0, 0, 0);
+}
+.buyAlert .blockButton {
+  background-color: #4d4d4d;
+  border-radius: 20px;
+  color: white;
+  font-size: 150%;
+  border-width: 2px;
+  padding: 10px 15px 10px 15px;
+  border-color: rgb(56, 56, 56);
+}
+
+.buyAlert .containerButton {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content a {
+  color: white;
+  padding: 14px 20px;
+}
+
+.contentBlock {
+  color: white;
+  display: block;
+  grid-area: 1 / 1;
+  align-content: space-between;
+  /* padding: 0px 1cqmax 0px 10px; */
+}
+
+#product {
+  display: flex;
+  flex-direction: row;
+  /* border: 3px solid #4d4d4d; */
+  border-radius: 15px;
+
+  margin: 10px 0px 10px 0px;
+
+  justify-content: space-evenly;
+}
+
+.activeBlock {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+.activeBlock audio {
+  height: 60px;
+  background-color: #4d4d4d;
+  padding-bottom: 10px;
+}
+
+.activeBlock .containerButton {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.line {
+  display: block;
+  height: 3px;
+  border-radius: 4px;
+  border: none; /* Отсутствие рамок упрощает визуальную часть */
+  border-top: 3px solid #4d4d4d; /* Внимание концентрируется на верхней границе */
+  margin: 1px 0; /* Дарим пространство сверху и снизу */
+  padding: 0; /* Избегаем лишнего объёма */
+}
+
+.contentBlock #infoBeat {
+  display: grid;
+  width: 50%;
+  padding: 14px 20px;
+
+  flex-direction: row;
+}
+
+.contentBlock #blockTitle {
+  font-size: 200%;
+  align-items: center;
+}
+
+.contentBlock #blockContent {
+  float: left;
+  align-self: flex-end;
+  font-size: 100%;
+}
+
+.activeBlock .blockButton {
+  background-color: #4d4d4d;
+  border-radius: 20px;
+  color: white;
+  font-size: 150%;
+  border-width: 2px;
+  padding: 10px 15px 10px 15px;
+  border-color: rgb(56, 56, 56);
+}
+
+.activeBlock .blockButton:hover {
+  background-color: rgb(128, 128, 128);
+  border-color: rgb(123, 123, 123);
+}

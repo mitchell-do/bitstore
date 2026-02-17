@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  align-content: center;
+}
+
+form .formBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form .formBlock .inputLabel {
+  color: white;
+}
