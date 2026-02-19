@@ -1,6 +1,7 @@
 import ContentBlock from "./contentBlock.jsx";
 import "./content.css";
 import { useState } from "react";
+import AlertWindow from "./alertWindow.jsx";
 
 let data = [
   {
@@ -11,24 +12,6 @@ let data = [
   },
   {
     id: 2,
-    title: "mlncr 180bpm",
-    content: "#MYLANCORE",
-    username: "morgenshtern",
-  },
-  {
-    id: 3,
-    title: "mlncr 180bpm",
-    content: "#MYLANCORE",
-    username: "morgenshtern",
-  },
-  {
-    id: 4,
-    title: "mlncr 180bpm",
-    content: "#MYLANCORE",
-    username: "morgenshtern",
-  },
-  {
-    id: 5,
     title: "mlncr 180bpm",
     content: "#MYLANCORE",
     username: "morgenshtern",
@@ -49,68 +32,23 @@ export default function Content() {
 
   return (
     <main className="content">
-      <div
-        className="buyAlert"
-        style={{ visibility: isVisible ? "hidden" : "visible" }}
-      >
-        <a className="comfortaa-regular">
-          {now.toLocaleDateString()}
-          <hr></hr>
-          {state !== null ? `Вы хотите купить \"${state}\" ?` : null}
-        </a>
-        <div className="containerButton">
-          <button
-            id="yesAnswer"
-            className="blockButton comfortaa-regular"
-            onClick={() => handleClick(null, 1)}
-          >
-            Да
-          </button>
-          <button
-            id="noAnswer"
-            className="blockButton comfortaa-regular"
-            onClick={() => handleClick(null, 1)}
-          >
-            Нет
-          </button>
-        </div>
-      </div>
+      <AlertWindow
+        isVisible={isVisible}
+        state={state}
+        handleClick={handleClick}
+        now={now}
+      />
       <article className="contentBlock">
-        <ContentBlock
-          title={data[0].title}
-          content={data[0].content}
-          username={data[0].username}
-          id={data[0].id}
-          handleClick={handleClick}
-        />
-        <ContentBlock
-          title={data[1].title}
-          content={data[1].content}
-          username={data[1].username}
-          id={data[1].id}
-          handleClick={handleClick}
-        />
-        <ContentBlock
-          title={data[1].title}
-          content={data[1].content}
-          username={data[1].username}
-          id={data[1].id}
-          handleClick={handleClick}
-        />
-        <ContentBlock
-          title={data[1].title}
-          content={data[1].content}
-          username={data[1].username}
-          id={data[1].id}
-          handleClick={handleClick}
-        />
-        <ContentBlock
-          title={data[1].title}
-          content={data[1].content}
-          username={data[1].username}
-          id={data[1].id}
-          handleClick={handleClick}
-        />
+        {data.map((data) => (
+          <ContentBlock
+            key={data.id} //для работы react
+            title={data.title}
+            content={data.content}
+            username={data.username}
+            id={data.id}
+            handleClick={handleClick}
+          />
+        ))}
       </article>
     </main>
   );

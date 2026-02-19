@@ -1,16 +1,91 @@
-form {
+.regTitle {
+  padding: 0px;
+  color: white;
+  font-size: 120%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  padding-left: 40px;
+  padding-right: 40px;
+
+  background-color: rgb(0, 0, 0);
+  border-radius: 2px;
+}
+
+.registration {
   display: flex;
   flex-direction: column;
-  padding: 10%;
-  align-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+
+  font-size: 200%;
+  background-color: rgb(60, 60, 60);
+  border-radius: 10px;
+}
+
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#submitButtonBlock {
+  align-items: center;
+}
+
+.submitButton {
+  margin-top: 10px;
+  padding: 0px;
+
+  padding-left: 40px;
+  padding-right: 40px;
+
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: 1px solid #000000;
+
+  font-size: 100%;
+  border-radius: 2px;
 }
 
 form .formBlock {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
+
+  padding-bottom: 15px;
 }
 
-form .formBlock .inputLabel {
-  color: white;
+.inputLabel {
+  font-size: 80%;
+  color: rgba(255, 255, 255, 0.467);
+  padding-bottom: 3px;
+}
+
+input {
+  display: flex;
+  text-align: center;
+
+  font-size: 100%;
+  padding: 14px 10px;
+  border: 1px solid rgb(45, 45, 45);
+  background-color: rgb(55, 55, 55);
+  border-radius: 5px;
+
+  color: aliceblue;
+}
+
+.submitButton:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+}
+
+.inputBlock:focus {
+  background-color: rgb(50, 50, 50);
+}
+
+.formBlock:hover .inputLabel {
+  color: rgba(255, 255, 255, 0.8);
 }
