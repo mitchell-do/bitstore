@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C61C506-3B3F-4145-9C25-F8AFD53F9EE3}|Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C61C506-3B3F-4145-9C25-F8AFD53F9EE3}|Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj|solutionrelative:bitstore.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{542AC93E-1653-0AD4-D1B7-E6DDDF040F64}|Bitstore.DataAccess\\Bitstore.DataAccess.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore.dataaccess\\migrations\\bitstoredbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{542AC93E-1653-0AD4-D1B7-E6DDDF040F64}|Bitstore.DataAccess\\Bitstore.DataAccess.csproj|solutionrelative:bitstore.dataaccess\\migrations\\bitstoredbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{655CE33B-4408-4FC3-AB18-E6A27AE6441A}|Bitstore.DataAccess\\Bitstore.DataAccess.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore.dataaccess\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{655CE33B-4408-4FC3-AB18-E6A27AE6441A}|Bitstore.DataAccess\\Bitstore.DataAccess.csproj|solutionrelative:bitstore.dataaccess\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Migrations\\20260222101346_Initial-Create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bitstore.DataAccess\\Migrations\\20260222101346_Initial-Create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BCF346F-03A9-461E-8529-4B19DD525D1C}|Bitstore.Application\\Bitstore.Application.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BCF346F-03A9-461E-8529-4B19DD525D1C}|Bitstore.Application\\Bitstore.Application.csproj|solutionrelative:bitstore.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114B8252-D747-452B-8CD5-34615D7117BE}|Bitstore.Core\\Bitstore.Core.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore.core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114B8252-D747-452B-8CD5-34615D7117BE}|Bitstore.Core\\Bitstore.Core.csproj|solutionrelative:bitstore.core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B778C6F-CEFD-464C-A575-03A119AF0704}|Bitstore\\Bitstore.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B778C6F-CEFD-464C-A575-03A119AF0704}|Bitstore\\Bitstore.csproj|solutionrelative:bitstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7BDC337-509F-BE56-63C2-3D6499ED0F9A}|Bitstore\\Bitstore.csproj|d:\\\u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\bitstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7BDC337-509F-BE56-63C2-3D6499ED0F9A}|Bitstore\\Bitstore.csproj|solutionrelative:bitstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,58 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.Infrastructure\\Class1.cs",
-              "RelativeDocumentMoniker": "Bitstore.Infrastructure\\Class1.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.Infrastructure\\Class1.cs",
-              "RelativeToolTip": "Bitstore.Infrastructure\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Title": "BitstoreDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Migrations\\BitstoreDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Bitstore.DataAccess\\Migrations\\BitstoreDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Migrations\\BitstoreDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Bitstore.DataAccess\\Migrations\\BitstoreDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T08:20:50.733Z",
+              "WhenOpened": "2026-02-22T10:14:11.76Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Class1.cs",
-              "RelativeDocumentMoniker": "Bitstore.DataAccess\\Class1.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Class1.cs",
-              "RelativeToolTip": "Bitstore.DataAccess\\Class1.cs",
+              "Title": "20260222101346_Initial-Create.cs",
+              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Migrations\\20260222101346_Initial-Create.cs",
+              "RelativeDocumentMoniker": "Bitstore.DataAccess\\Migrations\\20260222101346_Initial-Create.cs",
+              "ToolTip": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.DataAccess\\Migrations\\20260222101346_Initial-Create.cs",
+              "RelativeToolTip": "Bitstore.DataAccess\\Migrations\\20260222101346_Initial-Create.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T08:20:22.334Z",
+              "WhenOpened": "2026-02-22T10:13:46.548Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.Application\\Class1.cs",
-              "RelativeDocumentMoniker": "Bitstore.Application\\Class1.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.Application\\Class1.cs",
-              "RelativeToolTip": "Bitstore.Application\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T08:20:04.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.Core\\Class1.cs",
-              "RelativeDocumentMoniker": "Bitstore.Core\\Class1.cs",
-              "ToolTip": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore.Core\\Class1.cs",
-              "RelativeToolTip": "Bitstore.Core\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T08:19:21.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u043A\u0440\u0438\u043F\u0442\u044B\\bitstore\\Bitstore\\Program.cs",
               "RelativeDocumentMoniker": "Bitstore\\Program.cs",
