@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Content from "./components/Index/content.jsx";
 import AuthPage from "./components/Auth/authpage.jsx";
+import LostPassword from "./components/Auth/lostPass.jsx";
 
 import "./app.css";
 import HeaderTemp from "./components/Template/headerTemp.jsx";
@@ -28,6 +29,16 @@ export default function App() {
             <div className="divBody">
               <HeaderTemp></HeaderTemp>
               <AuthPage />
+            </div>
+          }
+        />
+
+        <Route
+          path="lostPassword"
+          element={
+            <div className="divBody">
+              <HeaderTemp></HeaderTemp>
+              <LostPassword />
             </div>
           }
         />

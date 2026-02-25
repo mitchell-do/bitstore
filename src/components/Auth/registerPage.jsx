@@ -5,7 +5,7 @@ export default function RegisterPage({}) {
     <main className="content" style={{ backgroundColor: "rgba(0,0,0,0)" }}>
       <div className="registration">
         <form id="registerForm">
-          <h1 className="regTitle comfortaa-regular">RRегистрация</h1>
+          <h1 className="hTitle comfortaa-regular">RRегистрация</h1>
 
           {/* поле Имя пользователя */}
           <div id="usernameBlock" className="formBlock">
@@ -20,6 +20,7 @@ export default function RegisterPage({}) {
               id="usernameInput"
               name="username"
               className="inputBlock comfortaa-regular"
+              required
             ></input>
           </div>
 
@@ -36,6 +37,7 @@ export default function RegisterPage({}) {
               id="emailInput"
               name="email"
               className="inputBlock comfortaa-regular"
+              required
             ></input>
           </div>
 
@@ -52,6 +54,7 @@ export default function RegisterPage({}) {
               id="passwordInput"
               name="password"
               className="inputBlock comfortaa-regular"
+              required
             ></input>
           </div>
 
@@ -62,6 +65,10 @@ export default function RegisterPage({}) {
             </button>
           </div>
         </form>
+
+        <a href="auth" className="perehod comfortaa-regular">
+          Уже есть аккаунт?
+        </a>
       </div>
     </main>
   );
