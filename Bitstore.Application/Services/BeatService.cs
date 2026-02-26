@@ -7,24 +7,24 @@ public class BeatService(IBeatRepository beatRepository) : IBeatService
 {
     private readonly IBeatRepository _beatRepository = beatRepository;
 
-    public Task<List<Beat>> GetBeats()
+    public async Task<List<Beat>> GetBeats()
     {
-        var beats = _beatRepository.GetAll();
+        var beats = await _beatRepository.GetAll();
         return beats;
     }
 
     public async Task CreateBeat(Beat beat)
     {   
-        await  _beatRepository.Create(beat);
+        await _beatRepository.Create(beat);
     }
 
     public Task UpdateBeat()
     {
-        throw new NotImplementedException();
+        throw new Exception();
     }
 
     public Task DeleteBeat()
     {
-        throw new NotImplementedException();
+        throw new Exception();
     }
 }

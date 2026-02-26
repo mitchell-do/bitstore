@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0">
@@ -26,6 +29,7 @@
     <ProjectReference Include="..\Bitstore.Application\Bitstore.Application.csproj" />
     <ProjectReference Include="..\Bitstore.Core\Bitstore.Core.csproj" />
     <ProjectReference Include="..\Bitstore.DataAccess\Bitstore.DataAccess.csproj" />
+    <ProjectReference Include="..\Bitstore.Infrastructure\Bitstore.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

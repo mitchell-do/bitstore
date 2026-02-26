@@ -38,11 +38,11 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
 
     public Task Delete()
     {
-        throw new NotImplementedException();
+        throw new Exception();
     }
 
     public Task Update()
     {
-        throw new NotImplementedException();
+        throw new Exception();
     }
 }

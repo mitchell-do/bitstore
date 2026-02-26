@@ -11,7 +11,7 @@ public class BeatController(IBeatService beatService): Controller
 {
     private readonly IBeatService _beatService = beatService;
     
-    [HttpGet("/allbeats")]
+    [HttpGet("allbeats")]
     public async Task<ActionResult<List<Beat>>> GetAllBeats()
     {
         var beats = await _beatService.GetBeats();
@@ -19,7 +19,7 @@ public class BeatController(IBeatService beatService): Controller
         return Ok(response);
     }
 
-    [HttpPost("/addbeat")]
+    [HttpPost("addbeat")]
     public async Task CreateBeat([FromBody] BeatRequest request)
     {
         var beat = Beat.Create(new Guid(), request.Title, request.Price, request.AudioUrl, true);
