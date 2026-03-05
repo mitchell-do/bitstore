@@ -16,6 +16,7 @@ public class User
     public string Email { get;  }
     public string Role { get; } = string.Empty;
     public string PasswordHash { get;  }
+    public List<Beat> Beats = new();
     
     public static  User Create(Guid id, string username, 
         string email, string passwordHash)

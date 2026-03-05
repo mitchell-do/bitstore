@@ -8,6 +8,9 @@ public class BeatConfiguration: IEntityTypeConfiguration<BeatEntity>
 {
     public void Configure(EntityTypeBuilder<BeatEntity> builder)
     {
+        builder
+            .HasOne(b => b.User)
+            .WithMany(u => u.Beats);
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Title)
             .IsRequired();

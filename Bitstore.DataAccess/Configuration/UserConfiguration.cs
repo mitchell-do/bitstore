@@ -8,6 +8,9 @@ public class UserConfiguration: IEntityTypeConfiguration<UserEntity>
 {
     public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
+        builder
+            .HasMany(b => b.Beats)
+            .WithOne(b => b.User);
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Email)
             .IsRequired();

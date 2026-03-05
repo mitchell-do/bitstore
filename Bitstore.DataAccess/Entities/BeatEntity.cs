@@ -10,6 +10,6 @@ public class BeatEntity
     public string AudioUrl { get; set; } = string.Empty;
     public bool IsPublished { get; set; }
     public DateTime CreatedAt { get; set; }
-    //public Guid UserId { get; set; }
-    //public User User { get; set; }
+    public Guid UserId { get; set; }
+    public UserEntity User { get; set; } = null!;
 }

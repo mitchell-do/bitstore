@@ -1,6 +1,7 @@
 ﻿using Bitstore.Core.Abstractions;
 using Bitstore.Core.Models;
 using Bitstore.DataAccess.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bitstore.DataAccess.Repositories;
@@ -40,6 +41,19 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
         var userEntity = await _context.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Email == email);
+        if (userEntity == null)
+        {
+            throw new Exception("User not found");
+        }
+        var user = User.Create(userEntity.Id,userEntity.Username,userEntity.Email, userEntity.PasswordHash);
+        return user;
+    }
+
+    public async Task<User> GetById(Guid id)
+    {
+        var userEntity = await _context.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Id == id);
         if (userEntity == null)
         {
             throw new Exception("User not found");

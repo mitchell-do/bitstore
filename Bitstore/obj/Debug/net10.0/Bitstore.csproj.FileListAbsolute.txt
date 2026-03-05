@@ -6,7 +6,6 @@ D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.deps
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.runtimeconfig.json
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.dll
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.pdb
-D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Microsoft.OpenApi.dll
 D:\Просто скрипты\bitstore\Bitstore\obj\Debug\net10.0\Bitstore.csproj.AssemblyReference.cache
 D:\Просто скрипты\bitstore\Bitstore\obj\Debug\net10.0\rpswa.dswa.cache.json
@@ -90,10 +89,7 @@ D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Appl
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Core.pdb
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Bitstore.DataAccess.pdb
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Humanizer.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Build.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Build.Framework.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Build.Tasks.Core.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Build.Utilities.Core.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -102,7 +98,6 @@ D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Cod
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Microsoft.NET.StringTools.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Mono.TextTemplating.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Newtonsoft.Json.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.CodeDom.dll
@@ -111,13 +106,6 @@ D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Compos
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Composition.Hosting.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Composition.Runtime.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Composition.TypedParts.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Formats.Nrbf.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Reflection.MetadataLoadContext.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Resources.Extensions.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Security.Permissions.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\System.Windows.Extensions.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -183,7 +171,6 @@ D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\ru\Microsoft.
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -201,3 +188,4 @@ D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Microsoft.Ide
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Infrastructure.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Infrastructure.pdb
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll

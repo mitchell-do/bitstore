@@ -8,21 +8,37 @@ namespace Bitstore.DataAccess.Repositories;
 public class BeatRepository(BitstoreDbContext context): IBeatRepository
 {
     private readonly BitstoreDbContext _context = context;
+   
     
     public async Task<List<Beat>> GetAll()
     {
-        
         var beatEntities = await _context.Beats
+            .Include(b => b.User)
             .AsNoTracking()
             .ToListAsync();
         var beats = beatEntities
-            .Select(b => Beat.Create(b.Id, b.Title, b.Price, b.AudioUrl, b.IsPublished))
+            .Select(b => Beat.Create(
+                b.Id,
+                b.Title,
+                b.Price,
+                b.AudioUrl,
+                b.IsPublished,
+                User.Create(
+                    b.User.Id,
+                    b.User.Username,
+                    b.User.Email,
+                    b.User.PasswordHash),
+                b.UserId))
             .ToList();
         return beats;
     }
 
     public async Task Create(Beat beat)
     {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == beat.UserId);
+        if (user == null)
+            throw new Exception();
+        
         var beatEntity = new BeatEntity()
         {
             Id = beat.Id,
@@ -30,8 +46,11 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
             Price = beat.Price,
             AudioUrl = beat.AudioUrl,
             IsPublished = beat.IsPublished,
-            CreatedAt = beat.CreatedAt
+            CreatedAt = beat.CreatedAt,
+            User = user,
+            UserId = user.Id
         };
+        
         await _context.Beats.AddAsync(beatEntity);
         await _context.SaveChangesAsync();
     }

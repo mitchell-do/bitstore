@@ -1,4 +1,6 @@
-﻿namespace Bitstore.DataAccess.Entities;
+﻿using Bitstore.Core.Models;
+
+namespace Bitstore.DataAccess.Entities;
 
 public class UserEntity
 {
@@ -7,4 +9,5 @@ public class UserEntity
     public string Email { get; set; } = string.Empty;
     public string Role { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;
+    public List<BeatEntity> Beats { get; set; }  = new();
 }
