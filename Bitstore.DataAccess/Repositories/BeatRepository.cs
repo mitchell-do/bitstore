@@ -27,8 +27,7 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
                     b.User.Id,
                     b.User.Username,
                     b.User.Email,
-                    b.User.PasswordHash),
-                b.UserId))
+                    b.User.PasswordHash)))
             .ToList();
         return beats;
     }

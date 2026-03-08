@@ -1,5 +1,6 @@
 ﻿using Bitstore.Core.Abstractions;
 using Bitstore.Core.Models;
+using Bitstore.DTO.Beat;
 
 namespace Bitstore.Application.Services;
 
@@ -15,7 +16,7 @@ public class BeatService(IBeatRepository beatRepository,
         return beats;
     }
 
-    public async Task<List<Beat>> GetBeatByUser(Guid userId)
+    public async Task<List<Beat>> GetBeatsByUser(Guid userId)
     {
         var user = await _userRepository.GetById(userId);
         if (user == null)
@@ -26,8 +27,21 @@ public class BeatService(IBeatRepository beatRepository,
         return beats;
     }
 
-    public async Task CreateBeat(Beat beat)
+    public async Task CreateBeat(Guid userId, BeatRequest request)
     {   
+        var user = await _userRepository.GetById(userId);
+        if (user == null)
+            throw new Exception("User not found");
+
+        var beat = Beat.Create(
+            Guid.NewGuid(),
+            request.Title,
+            request.Price,
+            request.AudioUrl,
+            false,
+            user);
+        
+        user.Beats.Add(beat);
         await _beatRepository.Create(beat);
     }
 

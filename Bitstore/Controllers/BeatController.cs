@@ -28,28 +28,23 @@ public class BeatController(IBeatService beatService,
     [HttpGet("user/{userId}")]
     public async Task<ActionResult<List<Beat>>> GetBeatsByUser(Guid userId)
     {
-        var currentUserId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var currentUserId = Guid.Parse(User.FindFirstValue("userId"));
         if (currentUserId == Guid.Empty)
         {
             throw new UnauthorizedAccessException();
         }
-        var beats = await _beatService.GetBeatByUser(currentUserId);
-        var response = beats.Select(b => new BeatResponse(b.Title, b.Price, b.AudioUrl));
+        var beats = await _beatService.GetBeatsByUser(currentUserId);
+        var response = beats.Select(b => new BeatResponse(b.Title, b.Price, b.AudioUrl)).ToList();
         return Ok(response);
     }
     
     [HttpPost("addbeat")]
     public async Task CreateBeat([FromBody] BeatRequest request)
     {
-        var currentUserId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var currentUserId = Guid.Parse(User.FindFirstValue("userId"));
         if (currentUserId == Guid.Empty)
             throw new UnauthorizedAccessException();
         
-        var user = await _userService.GetUserById(currentUserId);
-        if (user == null)
-            throw new UnauthorizedAccessException();
-        
-        var beat = Beat.Create(new Guid(), request.Title, request.Price, request.AudioUrl, true, user, currentUserId);
-        await _beatService.CreateBeat(beat);
+        await _beatService.CreateBeat(currentUserId, request);
     }
 }

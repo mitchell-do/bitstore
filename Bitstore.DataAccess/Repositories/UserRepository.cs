@@ -53,12 +53,26 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
     {
         var userEntity = await _context.Users
             .AsNoTracking()
+            .Include(u => u.Beats)
             .FirstOrDefaultAsync(u => u.Id == id);
         if (userEntity == null)
         {
             throw new Exception("User not found");
         }
         var user = User.Create(userEntity.Id,userEntity.Username,userEntity.Email, userEntity.PasswordHash);
+        foreach (var beatEntity in userEntity.Beats)
+        {
+            var beat = Beat.Create(
+                beatEntity.Id,
+                beatEntity.Title,
+                beatEntity.Price,
+                beatEntity.AudioUrl,
+                beatEntity.IsPublished,
+                user);
+            
+            user.Beats.Add(beat);
+        }
+        
         return user;
     }
 }

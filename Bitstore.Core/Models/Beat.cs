@@ -2,7 +2,7 @@
 
 public class Beat
 {
-    public Beat(Guid id, string title, decimal price, string audioUrl, bool isPublished, User user, Guid userId)
+    public Beat(Guid id, string title, decimal price, string audioUrl, bool isPublished, User user)
     {
         Id = id;
         Title = title;
@@ -10,7 +10,7 @@ public class Beat
         AudioUrl = audioUrl;
         IsPublished = isPublished;
         User = user;
-        UserId = userId;
+        UserId = user.Id; // fix: убрать из конструктора передачу Id и автоматически его присваивать от user
         CreatedAt = DateTime.UtcNow.Date;
     }
     public Guid Id { get; }
@@ -23,14 +23,14 @@ public class Beat
     public User User { get; }
 
     public static Beat Create(Guid id, string title, decimal price,
-        string audioUrl, bool isPublished,  User user,  Guid userId)
+        string audioUrl, bool isPublished,  User user)
     {
         //there will be a validation
         if (string.IsNullOrEmpty(title))
         {
             throw new Exception();
         }
-        var beat = new Beat(id, title, price, audioUrl, isPublished,  user, userId);
+        var beat = new Beat(id, title, price, audioUrl, isPublished,  user);
         return beat;
     }
 }
