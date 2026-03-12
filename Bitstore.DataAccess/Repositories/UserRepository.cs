@@ -30,8 +30,8 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
             .AsNoTracking()
             .ToListAsync();
         var users = userEntities
-            .Select(u => User.Create(u.Id, u.Username,
-                 u.Email, u.PasswordHash))
+            .Select(u => User.Create(u.Username,
+                 u.Email, u.PasswordHash, u.Role))
             .ToList();
         return users;
     }
@@ -45,7 +45,9 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
         {
             throw new Exception("User not found");
         }
-        var user = User.Create(userEntity.Id,userEntity.Username,userEntity.Email, userEntity.PasswordHash);
+        var user = User.Create(userEntity.Username,userEntity.Email,
+            userEntity.PasswordHash,  userEntity.Role);
+        
         return user;
     }
 
@@ -59,18 +61,19 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
         {
             throw new Exception("User not found");
         }
-        var user = User.Create(userEntity.Id,userEntity.Username,userEntity.Email, userEntity.PasswordHash);
+        var user = User.Create(userEntity.Username,userEntity.Email, userEntity.PasswordHash, userEntity.Role);
         foreach (var beatEntity in userEntity.Beats)
         {
             var beat = Beat.Create(
-                beatEntity.Id,
                 beatEntity.Title,
                 beatEntity.Price,
                 beatEntity.AudioUrl,
                 beatEntity.IsPublished,
+                beatEntity.Description,
+                beatEntity.CoverUrl,
                 user);
             
-            user.Beats.Add(beat);
+            user.AddBeat(beat);
         }
         
         return user;

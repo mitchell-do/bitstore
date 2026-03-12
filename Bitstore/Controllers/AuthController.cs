@@ -13,14 +13,14 @@ public class AuthController(IAuthService authService): Controller
     [HttpPost("login")]
     public async Task<ActionResult<string>> Login(LoginUserRequest request)
     {
-        var token =  await _authService.Login(request.Email, request.Password);
+        var token =  await _authService.Login(request);
         return Ok(token);
     }
 
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterUserRequest request)
     {
-        await _authService.Resgister(request.Username,request.Email, request.Password);
+        await _authService.Resgister(request);
         return Ok();
     }
 }

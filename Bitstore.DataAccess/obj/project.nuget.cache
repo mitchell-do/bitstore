@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H3L4CkdF3h0=",
+  "dgSpecHash": "f+w4lAgWjLQ=",
   "success": true,
-  "projectFilePath": "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj",
+  "projectFilePath": "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sgc\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\sgc\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",

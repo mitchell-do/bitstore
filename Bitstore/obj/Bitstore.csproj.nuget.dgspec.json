@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Просто скрипты\\bitstore\\Bitstore\\Bitstore.csproj": {}
+    "D:\\Просто скрипты\\Bitstore\\Bitstore\\Bitstore.csproj": {}
   },
   "projects": {
-    "D:\\Просто скрипты\\bitstore\\Bitstore.Application\\Bitstore.Application.csproj": {
+    "D:\\Просто скрипты\\Bitstore\\Bitstore.Application\\Bitstore.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Просто скрипты\\bitstore\\Bitstore.Application\\Bitstore.Application.csproj",
+        "projectUniqueName": "D:\\Просто скрипты\\Bitstore\\Bitstore.Application\\Bitstore.Application.csproj",
         "projectName": "Bitstore.Application",
-        "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Application\\Bitstore.Application.csproj",
+        "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Application\\Bitstore.Application.csproj",
         "packagesPath": "C:\\Users\\sgc\\.nuget\\packages\\",
-        "outputPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Application\\obj\\",
+        "outputPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
               }
             }
           }
@@ -394,14 +394,14 @@
         }
       }
     },
-    "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
+    "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj",
+        "projectUniqueName": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj",
         "projectName": "Bitstore.Core",
-        "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj",
+        "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj",
         "packagesPath": "C:\\Users\\sgc\\.nuget\\packages\\",
-        "outputPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\obj\\",
+        "outputPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -780,14 +780,14 @@
         }
       }
     },
-    "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj": {
+    "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj",
+        "projectUniqueName": "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj",
         "projectName": "Bitstore.DataAccess",
-        "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj",
+        "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj",
         "packagesPath": "C:\\Users\\sgc\\.nuget\\packages\\",
-        "outputPath": "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\obj\\",
+        "outputPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -809,8 +809,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
               }
             }
           }
@@ -1174,14 +1174,14 @@
         }
       }
     },
-    "D:\\Просто скрипты\\bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj": {
+    "D:\\Просто скрипты\\Bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Просто скрипты\\bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Просто скрипты\\Bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj",
         "projectName": "Bitstore.Infrastructure",
-        "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj",
+        "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\sgc\\.nuget\\packages\\",
-        "outputPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Infrastructure\\obj\\",
+        "outputPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1203,8 +1203,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
               }
             }
           }
@@ -1564,14 +1564,14 @@
         }
       }
     },
-    "D:\\Просто скрипты\\bitstore\\Bitstore\\Bitstore.csproj": {
+    "D:\\Просто скрипты\\Bitstore\\Bitstore\\Bitstore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Просто скрипты\\bitstore\\Bitstore\\Bitstore.csproj",
+        "projectUniqueName": "D:\\Просто скрипты\\Bitstore\\Bitstore\\Bitstore.csproj",
         "projectName": "Bitstore",
-        "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore\\Bitstore.csproj",
+        "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore\\Bitstore.csproj",
         "packagesPath": "C:\\Users\\sgc\\.nuget\\packages\\",
-        "outputPath": "D:\\Просто скрипты\\bitstore\\Bitstore\\obj\\",
+        "outputPath": "D:\\Просто скрипты\\Bitstore\\Bitstore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1593,17 +1593,17 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Просто скрипты\\bitstore\\Bitstore.Application\\Bitstore.Application.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Application\\Bitstore.Application.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.Application\\Bitstore.Application.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Application\\Bitstore.Application.csproj"
               },
-              "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Core\\Bitstore.Core.csproj"
               },
-              "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.DataAccess\\Bitstore.DataAccess.csproj"
               },
-              "D:\\Просто скрипты\\bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj": {
-                "projectPath": "D:\\Просто скрипты\\bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj"
+              "D:\\Просто скрипты\\Bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj": {
+                "projectPath": "D:\\Просто скрипты\\Bitstore\\Bitstore.Infrastructure\\Bitstore.Infrastructure.csproj"
               }
             }
           }

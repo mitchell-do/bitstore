@@ -189,3 +189,4 @@ D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\System.Identi
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Infrastructure.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Infrastructure.pdb
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Просто скрипты\Bitstore\Bitstore\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

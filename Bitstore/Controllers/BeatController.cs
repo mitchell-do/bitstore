@@ -1,9 +1,11 @@
 ﻿using System.Security.Claims;
 using Bitstore.Core.Abstractions;
+using Bitstore.Core.Enums;
 using Bitstore.Core.Models;
 using Bitstore.DTO.Beat;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi;
 
 namespace Bitstore.Controllers;
 

@@ -23,7 +23,7 @@ public class BeatService(IBeatRepository beatRepository,
         {
             throw new Exception();
         }
-        var beats = user.Beats;
+        var beats = user.Beats.ToList();
         return beats;
     }
 
@@ -34,14 +34,15 @@ public class BeatService(IBeatRepository beatRepository,
             throw new Exception("User not found");
 
         var beat = Beat.Create(
-            Guid.NewGuid(),
             request.Title,
             request.Price,
             request.AudioUrl,
             false,
+            request.Description,
+            request.CoverUrl,
             user);
         
-        user.Beats.Add(beat);
+        user.AddBeat(beat);
         await _beatRepository.Create(beat);
     }
 

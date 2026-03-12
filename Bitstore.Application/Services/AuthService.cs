@@ -1,5 +1,7 @@
 ﻿using Bitstore.Core.Abstractions;
+using Bitstore.Core.Enums;
 using Bitstore.Core.Models;
+using Bitstore.DTO.Auth;
 
 namespace Bitstore.Application.Services;
 
@@ -9,18 +11,17 @@ public class AuthService(
     IJwtProvider jwtProvider)
     : IAuthService
 {
-    public async Task Resgister(string username, string email,
-        string password)
+    public async Task Resgister(RegisterUserRequest request)
     {
-        var hashedPassword = passwordHasher.Generate(password);
-        var user = User.Create(Guid.NewGuid(), username, email, hashedPassword);
+        var hashedPassword = passwordHasher.Generate(request.Password);
+        var user = User.Create(request.Username, request.Email, hashedPassword, "Customer");
         await userRepository.Create(user);
     }
 
-    public async Task<string> Login(string email, string password)
+    public async Task<string> Login(LoginUserRequest request)
     {
-        var user = await userRepository.GetByEmail(email);
-        var result = passwordHasher.Verify(password, user.PasswordHash);
+        var user = await userRepository.GetByEmail(request.Email);
+        var result = passwordHasher.Verify(request.Password, user.PasswordHash);
         if (result == false)
         {
             throw new Exception("Invalid username or password");

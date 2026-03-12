@@ -18,16 +18,17 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
             .ToListAsync();
         var beats = beatEntities
             .Select(b => Beat.Create(
-                b.Id,
                 b.Title,
                 b.Price,
                 b.AudioUrl,
                 b.IsPublished,
+                b.Description,
+                b.CoverUrl,
                 User.Create(
-                    b.User.Id,
                     b.User.Username,
                     b.User.Email,
-                    b.User.PasswordHash)))
+                    b.User.PasswordHash,
+                    b.User.Role)))
             .ToList();
         return beats;
     }

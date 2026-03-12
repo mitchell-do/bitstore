@@ -18,5 +18,7 @@ public class UserConfiguration: IEntityTypeConfiguration<UserEntity>
             .IsRequired();
         builder.Property(x => x.Username)
             .IsRequired();
+        builder.Property(x => x.Balance)
+            .IsRequired();
     }
 }

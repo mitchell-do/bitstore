@@ -1,31 +1,61 @@
-﻿namespace Bitstore.Core.Models;
+﻿using Bitstore.Core.Enums;
+
+namespace Bitstore.Core.Models;
 
 public class User
 {
-    public User(Guid id, string username,
-        string email, string passwordHash)
+    private readonly List<Beat> _beats = new();
+    private readonly List<Order> _orders = new();
+    private readonly List<OrderItem> _orderItems = new();
+    private User(string username,
+        string email, string passwordHash, string role)
     {
-        Id = id;
+        Id = Guid.NewGuid();
         Username = username;
         Email = email;
         PasswordHash = passwordHash;
-        //Role = role;
+        Role = role;
     }
     public Guid  Id { get; }
     public string Username { get;  }
     public string Email { get;  }
-    public string Role { get; } = string.Empty;
+    public string Role { get; } 
     public string PasswordHash { get;  }
-    public List<Beat> Beats = new();
+    public decimal Balance { get; } = 0;
     
-    public static  User Create(Guid id, string username, 
-        string email, string passwordHash)
+    public IReadOnlyCollection<Beat> Beats => _beats;
+    public IReadOnlyCollection<Order> Orders => _orders;
+    public IReadOnlyCollection<OrderItem> SoldItems => _orderItems;
+    
+    public static  User Create(string username, 
+        string email, string passwordHash, string role)
     {
         // validation
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email))
+        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(passwordHash))
         {
-            throw new Exception();
+            throw new ArgumentNullException();
         }
-        return new User(id, username, email, passwordHash);
+        return new User(username, email, passwordHash, role);
+    }
+
+    public void AddBeat(Beat beat)
+    {
+        if (beat == null)
+            throw new ArgumentNullException();
+        _beats.Add(beat);
+    }
+
+    public void AddOrder(Order order)
+    {
+        if (order == null)
+            throw new ArgumentNullException();
+        _orders.Add(order);
+    }
+
+    public void AddOrderItem(OrderItem orderItem)
+    {
+        if (orderItem == null)
+            throw new ArgumentNullException();
+        _orderItems.Add(orderItem);
     }
 }

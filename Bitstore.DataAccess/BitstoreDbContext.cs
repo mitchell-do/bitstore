@@ -1,4 +1,5 @@
-﻿using Bitstore.DataAccess.Entities;
+﻿using Bitstore.DataAccess.Configuration;
+using Bitstore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bitstore.DataAccess;
@@ -7,5 +8,13 @@ public class BitstoreDbContext(DbContextOptions<BitstoreDbContext> options) : Db
 {
     public DbSet<UserEntity> Users { get; set; }
     public DbSet<BeatEntity> Beats { get; set; }
-    
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new BeatConfiguration());
+        modelBuilder.ApplyConfiguration(new OrderConfiguration());
+        modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
+        modelBuilder.ApplyConfiguration(new LicenseConfiguration());
+    }
 }
