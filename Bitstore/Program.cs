@@ -3,16 +3,26 @@ using Bitstore.Application.Services;
 using Bitstore.Core.Abstractions;
 using Bitstore.DataAccess;
 using Bitstore.DataAccess.Repositories;
+using Bitstore.DTO.Auth;
+using Bitstore.DTO.Beat;
 using Bitstore.Infrastructure;
+using Bitstore.Validators;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+using Serilog;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -62,6 +72,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 builder.Services.AddAuthorization();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
 builder.Services.AddDbContext<BitstoreDbContext>(options =>
@@ -79,9 +90,15 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddScoped<IValidator<LoginUserRequest>, LoginUserRequestValidator>();
+builder.Services.AddScoped<IValidator<RegisterUserRequest>, RegisterUserRequestValidator>();
+builder.Services.AddScoped<IValidator<BeatRequest>, BeatRequestValidator>();
+builder.Services.AddScoped<IValidator<BeatResponse>, BeatResponseValidator>();
+
 builder.Services.AddScoped<IBeatRepository, BeatRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IBeatService, BeatService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
