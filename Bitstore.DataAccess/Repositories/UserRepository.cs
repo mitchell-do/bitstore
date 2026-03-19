@@ -1,4 +1,5 @@
-﻿using Bitstore.Core.Abstractions;
+﻿using Bitstore.Application.Exceptions;
+using Bitstore.Core.Abstractions;
 using Bitstore.Core.Models;
 using Bitstore.DataAccess.Entities;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -10,7 +11,7 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
 {
     private readonly BitstoreDbContext _context = context;
     
-    public async Task Create(User user)
+    public async Task<Guid> Create(User user)
     {
         var userEntity = new UserEntity()
         {
@@ -22,6 +23,8 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
         };
         await  _context.Users.AddAsync(userEntity);
         await _context.SaveChangesAsync();
+
+        return user.Id;
     }
 
     public async Task<List<User>> GetAll()
@@ -77,5 +80,52 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
         }
         
         return user;
+    }
+
+    public async Task Update(User user)
+    {
+        await _context.Users
+            .Where(u => u.Id == user.Id)
+            .ExecuteUpdateAsync<UserEntity>(u => u
+                .SetProperty(u => u.Username, user.Username)
+                .SetProperty(u => u.PasswordHash, user.PasswordHash)
+                .SetProperty(u => u.Email, user.Email)
+                .SetProperty(u => u.Role, user.Role)
+                .SetProperty(u => u.Balance, user.Balance));
+        
+    }
+
+    public async Task<bool> Delete(Guid userId)
+    {
+       var result = await _context.Users
+            .Where(u => u.Id == userId)
+            .ExecuteDeleteAsync();
+       if (result == 0)
+            throw new NullReferenceException($"User with id {userId} not found");
+        
+       return true;
+    }
+
+    public async Task<decimal> GetBalance(Guid userId)
+    {
+        var userEntity = await _context.Users
+            .Where(u => u.Id == userId)
+            .Select(u => new {u.Balance})
+            .FirstOrDefaultAsync();
+        
+        if (userEntity == null)
+            throw new NotFoundException($"User with id {userId} not found");
+        return userEntity.Balance;
+    }
+
+    public async Task UpdateBalance(Guid userId, decimal amount)
+    {
+        var updatedCount = await _context.Users
+            .Where(u => u.Id == userId)
+            .ExecuteUpdateAsync(u => u
+                .SetProperty(u => u.Balance, amount));
+        
+        if (updatedCount == 0)
+            throw new NotFoundException($"User with id {userId} not found");
     }
 }

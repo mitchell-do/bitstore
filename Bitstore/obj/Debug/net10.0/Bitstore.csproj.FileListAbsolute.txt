@@ -189,4 +189,12 @@ D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\System.Identi
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Infrastructure.dll
 D:\Просто скрипты\Bitstore\Bitstore\bin\Debug\net10.0\Bitstore.Infrastructure.pdb
 D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
-D:\Просто скрипты\Bitstore\Bitstore\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.AspNetCore.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+D:\Просто скрипты\bitstore\Bitstore\bin\Debug\net10.0\Serilog.Sinks.File.dll

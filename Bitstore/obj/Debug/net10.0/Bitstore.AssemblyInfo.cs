@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bitstore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b6bd7cc4d92e8261e504e8ee0354947fd9acde3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93fc2c261275d5f397eec365050c1213f9a20466")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bitstore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bitstore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -6,26 +6,31 @@ using Bitstore.DTO.Auth;
 namespace Bitstore.Application.Services;
 
 public class AuthService(
-    IUserRepository userRepository,
+    IUserService userService,
     IPasswordHasher passwordHasher,
     IJwtProvider jwtProvider)
     : IAuthService
 {
     public async Task Resgister(RegisterUserRequest request)
     {
+        var existingUser = await userService.GetUserByEmail(request.Email);
+        if (existingUser != null)
+            throw new Exception("User already exists");
+        
         var hashedPassword = passwordHasher.Generate(request.Password);
-        var user = User.Create(request.Username, request.Email, hashedPassword, "Customer");
-        await userRepository.Create(user);
+        var user = User.Create(request.Username, request.Email,
+            hashedPassword, "Customer");
+        
+        await userService.CreateUser(user);
     }
 
     public async Task<string> Login(LoginUserRequest request)
     {
-        var user = await userRepository.GetByEmail(request.Email);
+        var user = await userService.GetUserByEmail(request.Email);
         var result = passwordHasher.Verify(request.Password, user.PasswordHash);
+        
         if (result == false)
-        {
             throw new Exception("Invalid username or password");
-        }
 
         var token = jwtProvider.GenerateToken(user);
         return token;
