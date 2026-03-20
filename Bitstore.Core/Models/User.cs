@@ -7,10 +7,10 @@ public class User
     private readonly List<Beat> _beats = new();
     private readonly List<Order> _orders = new();
     private readonly List<OrderItem> _orderItems = new();
-    private User(string username,
+    private User(Guid userId, string username,
         string email, string passwordHash, string role)
     {
-        Id = Guid.NewGuid();
+        Id = userId;
         Username = username;
         Email = email;
         PasswordHash = passwordHash;
@@ -27,7 +27,7 @@ public class User
     public IReadOnlyCollection<Order> Orders => _orders;
     public IReadOnlyCollection<OrderItem> SoldItems => _orderItems;
     
-    public static  User Create(string username, 
+    public static  User Create(Guid userId, string username, 
         string email, string passwordHash, string role)
     {
         // validation
@@ -35,7 +35,7 @@ public class User
         {
             throw new ArgumentNullException();
         }
-        return new User(username, email, passwordHash, role);
+        return new User(userId, username, email, passwordHash, role);
     }
 
     public void AddBeat(Beat beat)
