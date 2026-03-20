@@ -1,49 +1,80 @@
 ﻿using Bitstore.Core.Abstractions;
 using Bitstore.Core.Models;
 using Bitstore.DTO.Beat;
+using Serilog;
 
 namespace Bitstore.Application.Services;
 
-public class BeatService(IBeatRepository beatRepository,
-    IUserRepository userRepository) : IBeatService
+public class BeatService(
+    IBeatRepository beatRepository,
+    IUserRepository userRepository, 
+    ICurrentUserService currentUserService) 
+    : IBeatService
 {
     private readonly IBeatRepository _beatRepository = beatRepository;
     private readonly IUserRepository _userRepository = userRepository;
-    
-    public async Task<List<Beat>> GetBeats()
+    private readonly ICurrentUserService _currentUserService = currentUserService;
+
+    public async Task<List<BeatResponse>> GetBeats()
     {
+        Log.Information("Getting all beats");
+        
         var beats = await _beatRepository.GetAll();
-        return beats;
+        
+        var response = beats.Select(b => 
+            new BeatResponse(b.Title, b.Price, b.AudioUrl,
+                b.Description, b.CoverUrl)).ToList();
+        
+        Log.Information("Returned {Count} beats", response.Count);
+        
+        return response;
     }
 
-    public async Task<List<Beat>> GetBeatsByUser(Guid userId)
+    public async Task<List<BeatResponse>> GetBeatsByUser(Guid userId)
     {
-        var user = await _userRepository.GetById(userId);
-        if (user == null)
+        var currentUserId = _currentUserService.GetUserId();
+        var currentUserRole = _currentUserService.GetUserRole();
+        
+        if (currentUserRole != "Admin" && currentUserId != userId)
         {
-            throw new Exception();
+            Log.Warning("User {CurrentUserId} attempted to access beats of user {TargetUserId}", 
+                currentUserId, userId);
+            throw new UnauthorizedAccessException("You can only view your own beats");
         }
-        var beats = user.Beats.ToList();
-        return beats;
+        
+        Log.Information("Getting beats for user {UserId}", userId);
+        
+        var beats = await _beatRepository.GetByUserId(userId);
+        
+        var response = beats.Select(b => 
+            new BeatResponse(b.Title, b.Price, b.AudioUrl,
+                b.Description, b.CoverUrl)).ToList();
+        
+        Log.Information("Returned {Count} beats", response.Count);
+        
+        return response;
     }
 
-    public async Task CreateBeat(Guid userId, BeatRequest request)
+    public async Task CreateBeat(BeatRequest request)
     {   
-        var user = await _userRepository.GetById(userId);
-        if (user == null)
-            throw new Exception("User not found");
+        var currentUserId = _currentUserService.GetUserId();
+        
+        Log.Information("User {UserId} is creating a new beat", currentUserId);
+        
+        var user = await _userRepository.GetById(currentUserId);
 
         var beat = Beat.Create(
             request.Title,
             request.Price,
             request.AudioUrl,
-            false,
+            true,
             request.Description,
             request.CoverUrl,
             user);
         
-        user.AddBeat(beat);
         await _beatRepository.Create(beat);
+        
+        Log.Information("Created new beat {BeatId} by {UserId}", beat.Id, user.Id);
     }
 
     public Task UpdateBeat()

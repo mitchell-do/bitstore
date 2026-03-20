@@ -1,4 +1,6 @@
-﻿using Bitstore.Core.Abstractions;
+﻿using Bitstore.Application.DTO.User;
+using Bitstore.Application.Exceptions;
+using Bitstore.Core.Abstractions;
 using Bitstore.Core.Models;
 using Serilog;
 
@@ -7,44 +9,100 @@ namespace Bitstore.Application.Services;
 public class UserService(IUserRepository userRepository,
     ICurrentUserService currentUserService): IUserService
 {
-    public async Task<User> GetUserById(Guid userId)
+    public async Task<UserResponse> GetUserById(Guid userId)
     {
+        
+        if (currentUserService.GetUserRole() != "Admin")
+            throw new UnauthorizedAccessException("Only admin users can do this");
+        
         var user = await userRepository.GetById(userId);
-        return user;
+
+        var response = new UserResponse(
+            user.Id,
+            user.Username,
+            user.Email,
+            user.Role,
+            user.Balance);
+        
+        Log.Information("Returning user by id {userId}", userId);
+        
+        return response;
     }
 
-    public async Task<List<User>> GetAllUsers()
+    public async Task<List<UserResponse>> GetAllUsers()
     {
+        if (currentUserService.GetUserRole() != "Admin")
+            throw new UnauthorizedAccessException("Only admin users can do this");
+        
         var users = await userRepository.GetAll();
-        return users;
+
+        var response = users.Select(u =>
+            new UserResponse(u.Id, u.Username,
+                u.Email, u.Role, u.Balance)).ToList();
+        
+        Log.Information("Returning all users");
+        return response;
     }
 
-    public async Task<User> GetUserByEmail(string email)
+    public async Task<UserResponse> GetUserByEmail(string email)
     {
+        if (currentUserService.GetUserRole() != "Admin")
+            throw new UnauthorizedAccessException("Only admin users can do this");
+        
         var user = await userRepository.GetByEmail(email);
-        return user;
+        
+        var response = new UserResponse(
+            user.Id,
+            user.Username,
+            user.Email,
+            user.Role,
+            user.Balance);
+        
+        Log.Information("Returning user by email {Email}", email);
+        
+        return response;
     }
 
     public async Task<bool> DeleteUserById(Guid userId)
     {
+        if (currentUserService.GetUserRole() != "Admin")
+            throw new UnauthorizedAccessException("Only admin users can do this");
+        
         var result = await userRepository.Delete(userId);
+        
+        Log.Information("Deleting operation is {IsDeleted} ", result);
         
         return result;
     }
 
-    public async Task<Guid> UpdateUser(User user)
+    public async Task UpdateUser(Guid userId, UserUpdateRequest request)
     {
-        throw new NotImplementedException();
+        if (currentUserService.GetUserRole() != "Admin")
+            throw new UnauthorizedAccessException("Only admin users can do this");
+        
+        var user = User.Create(
+            userId,
+            request.Username,
+            request.Email,
+            "",
+            request.Role);
+        
+        Log.Information("User with id {UserId} was updated", userId);
+        
+        await  userRepository.Update(user);
     }
 
-    public async Task<Guid> CreateUser(User user)
+    public async Task CreateUser(User user)
     {
+        if (user == null)
+            throw new ArgumentNullException(nameof(user));
+        
         await userRepository.Create(user);
-        return user.Id;
     }
 
     public async Task<decimal> GetBalance(Guid userId)
     {
+        
         var currentUserId = currentUserService.GetUserId();
         var isAdmin = currentUserService.IsInRole("Admin");
         if (currentUserId != userId && !isAdmin)
@@ -66,7 +124,7 @@ public class UserService(IUserRepository userRepository,
         var isAdmin = currentUserService.IsInRole("Admin");
         if (currentUserId != userId && !isAdmin)
         {
-            Log.Warning("User {CurrentUserId} attempted to update balance of user {TargetUserId}"
+            Log.Error("User {CurrentUserId} attempted to update balance of user {TargetUserId}"
                 ,currentUserId, userId);
             throw new UnauthorizedAccessException("Only admin users can update balance");
         }

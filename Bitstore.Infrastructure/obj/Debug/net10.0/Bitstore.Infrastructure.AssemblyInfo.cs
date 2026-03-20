@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bitstore.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93fc2c261275d5f397eec365050c1213f9a20466")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e242af9e580ec9a1f146a68a71bc76a145fe1510")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bitstore.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bitstore.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

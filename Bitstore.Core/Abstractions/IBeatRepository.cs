@@ -8,5 +8,5 @@ public interface IBeatRepository
     Task Create(Beat beat);
     Task Delete();
     Task Update();
-    
+    Task<List<Beat>> GetByUserId(Guid userId);
 }

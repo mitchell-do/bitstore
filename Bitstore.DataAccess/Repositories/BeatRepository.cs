@@ -2,6 +2,7 @@
 using Bitstore.Core.Models;
 using Bitstore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace Bitstore.DataAccess.Repositories;
 
@@ -12,10 +13,15 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
     
     public async Task<List<Beat>> GetAll()
     {
+        
         var beatEntities = await _context.Beats
             .Include(b => b.User)
             .AsNoTracking()
             .ToListAsync();
+        
+        if (beatEntities == null)
+            throw new ArgumentNullException($"Beats not found");
+        
         var beats = beatEntities
             .Select(b => Beat.Create(
                 b.Title,
@@ -25,6 +31,7 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
                 b.Description,
                 b.CoverUrl,
                 User.Create(
+                    b.User.Id,
                     b.User.Username,
                     b.User.Email,
                     b.User.PasswordHash,
@@ -63,5 +70,32 @@ public class BeatRepository(BitstoreDbContext context): IBeatRepository
     public Task Update()
     {
         throw new Exception();
+    }
+
+    public async Task<List<Beat>> GetByUserId(Guid userId)
+    {
+        var beatEntities = await _context.Beats
+            .Where(b => b.UserId == userId)
+            .Include(b => b.User)
+            .AsNoTracking()
+            .ToListAsync();
+        
+        var beats = beatEntities.
+            Select(b => Beat.Create(
+                b.Title,
+                b.Price,
+                b.AudioUrl,
+                b.IsPublished,
+                b.Description,
+                b.CoverUrl,
+                User.Create(
+                    b.User.Id,
+                    b.User.Username,
+                    b.User.Email,
+                    b.User.PasswordHash,
+                    b.User.Role)))
+            .ToList();
+
+        return beats;
     }
 }

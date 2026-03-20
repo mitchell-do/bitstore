@@ -1,15 +1,16 @@
-﻿using Bitstore.Core.Models;
+﻿using Bitstore.Application.DTO.User;
+using Bitstore.Core.Models;
 
 namespace Bitstore.Core.Abstractions;
 
 public interface IUserService
 {
-    Task<User> GetUserById(Guid userId);
-    Task<List<User>> GetAllUsers();
-    Task<User> GetUserByEmail(string email);
+    Task<UserResponse> GetUserById(Guid userId);
+    Task<List<UserResponse>> GetAllUsers();
+    Task<UserResponse> GetUserByEmail(string email);
     Task<bool> DeleteUserById(Guid userId);
-    Task<Guid> UpdateUser(User user);
-    Task<Guid> CreateUser(User user);
+    Task UpdateUser(Guid userId, UserUpdateRequest request);
+    Task CreateUser(User user);
     Task<decimal> GetBalance(Guid userId);
     Task UpdateBalance(Guid userId, decimal amount);
 }

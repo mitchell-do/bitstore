@@ -5,9 +5,9 @@ namespace Bitstore.Core.Abstractions;
 
 public interface IBeatService
 {
-    Task<List<Beat>> GetBeats();
-    Task<List<Beat>> GetBeatsByUser(Guid userId);
-    Task CreateBeat(Guid userId, BeatRequest request);
+    Task<List<BeatResponse>> GetBeats();
+    Task<List<BeatResponse>> GetBeatsByUser(Guid userId);
+    Task CreateBeat(BeatRequest request);
     Task UpdateBeat();
     Task DeleteBeat();
 }

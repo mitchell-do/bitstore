@@ -1,4 +1,5 @@
 using System.Text;
+using Bitstore.Application.DTO.User;
 using Bitstore.Application.Services;
 using Bitstore.Core.Abstractions;
 using Bitstore.DataAccess;
@@ -7,7 +8,11 @@ using Bitstore.DTO.Auth;
 using Bitstore.DTO.Beat;
 using Bitstore.Infrastructure;
 using Bitstore.Validators;
+using Bitstore.Validators.Auth;
+using Bitstore.Validators.Beat;
+using Bitstore.Validators.User;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -18,6 +23,7 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddFluentValidationAutoValidation();
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -74,7 +80,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 builder.Services.AddDbContext<BitstoreDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("BitstoreDbContext"));
@@ -92,8 +98,13 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IValidator<LoginUserRequest>, LoginUserRequestValidator>();
 builder.Services.AddScoped<IValidator<RegisterUserRequest>, RegisterUserRequestValidator>();
+
 builder.Services.AddScoped<IValidator<BeatRequest>, BeatRequestValidator>();
 builder.Services.AddScoped<IValidator<BeatResponse>, BeatResponseValidator>();
+
+builder.Services.AddScoped<IValidator<UserUpdateBalanceRequest>, UserUpdateBalanceRequestValidator>();
+builder.Services.AddScoped<IValidator<UserUpdateRequest>, UserUpdateRequestValidator>();
+builder.Services.AddScoped<IValidator<UserResponse>, UserResponseValidator>();
 
 builder.Services.AddScoped<IBeatRepository, BeatRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

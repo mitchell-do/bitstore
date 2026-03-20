@@ -2,37 +2,46 @@
 using Bitstore.Core.Enums;
 using Bitstore.Core.Models;
 using Bitstore.DTO.Auth;
+using Serilog;
 
 namespace Bitstore.Application.Services;
 
 public class AuthService(
-    IUserService userService,
+    IUserRepository userRepository,
     IPasswordHasher passwordHasher,
     IJwtProvider jwtProvider)
     : IAuthService
 {
     public async Task Resgister(RegisterUserRequest request)
     {
-        var existingUser = await userService.GetUserByEmail(request.Email);
-        if (existingUser != null)
+        var existingUser = await userRepository.ExistsByEmail(request.Email);
+        
+        if (existingUser)
             throw new Exception("User already exists");
         
         var hashedPassword = passwordHasher.Generate(request.Password);
-        var user = User.Create(request.Username, request.Email,
+        
+        var user = User.Create(Guid.NewGuid(), request.Username, request.Email,
             hashedPassword, "Customer");
         
-        await userService.CreateUser(user);
+        Log.Information("Registering user with username {Username}", user.Username);
+        
+        await userRepository.Create(user);
     }
 
     public async Task<string> Login(LoginUserRequest request)
     {
-        var user = await userService.GetUserByEmail(request.Email);
+        var user = await userRepository.GetByEmail(request.Email);
+        
         var result = passwordHasher.Verify(request.Password, user.PasswordHash);
         
-        if (result == false)
+        if (!result)
             throw new Exception("Invalid username or password");
 
         var token = jwtProvider.GenerateToken(user);
+        
+        Log.Information("Login for user {Username}", user.Username);
+        
         return token;
 
     }

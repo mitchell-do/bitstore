@@ -2,8 +2,8 @@
 using Bitstore.Core.Abstractions;
 using Bitstore.Core.Models;
 using Bitstore.DataAccess.Entities;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace Bitstore.DataAccess.Repositories;
 
@@ -11,8 +11,13 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
 {
     private readonly BitstoreDbContext _context = context;
     
-    public async Task<Guid> Create(User user)
+    public async Task Create(User user)
     {
+        if (user == null)
+            throw new ArgumentNullException(nameof(user));
+        
+        Log.Information("Creating user with id {userId}...", user.Id);
+        
         var userEntity = new UserEntity()
         {
             Id = user.Id,
@@ -21,34 +26,43 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
             Email = user.Email,
             Role = user.Role
         };
+        
         await  _context.Users.AddAsync(userEntity);
         await _context.SaveChangesAsync();
-
-        return user.Id;
+        
     }
 
     public async Task<List<User>> GetAll()
     {
+        Log.Information("Getting all users...");
         var userEntities = await _context.Users
             .AsNoTracking()
             .ToListAsync();
         var users = userEntities
-            .Select(u => User.Create(u.Username,
+            .Select(u => User.Create(u.Id, u.Username,
                  u.Email, u.PasswordHash, u.Role))
             .ToList();
         return users;
     }
 
+    public async Task<bool> ExistsByEmail(string email)
+    {
+        var result = await _context.Users.AnyAsync(u => u.Email == email);
+        return result;
+    }
+
     public async Task<User> GetByEmail(string email)
     {
+        Log.Information("Getting user by email {Email}", email);
+        
         var userEntity = await _context.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Email == email);
+        
         if (userEntity == null)
-        {
-            throw new Exception("User not found");
-        }
-        var user = User.Create(userEntity.Username,userEntity.Email,
+            throw new NotFoundException("User not found");
+        
+        var user = User.Create(userEntity.Id, userEntity.Username,userEntity.Email,
             userEntity.PasswordHash,  userEntity.Role);
         
         return user;
@@ -56,58 +70,49 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
 
     public async Task<User> GetById(Guid id)
     {
+        Log.Information("Getting user by id {UserId}", id);
+        
         var userEntity = await _context.Users
             .AsNoTracking()
-            .Include(u => u.Beats)
             .FirstOrDefaultAsync(u => u.Id == id);
+        
         if (userEntity == null)
-        {
-            throw new Exception("User not found");
-        }
-        var user = User.Create(userEntity.Username,userEntity.Email, userEntity.PasswordHash, userEntity.Role);
-        foreach (var beatEntity in userEntity.Beats)
-        {
-            var beat = Beat.Create(
-                beatEntity.Title,
-                beatEntity.Price,
-                beatEntity.AudioUrl,
-                beatEntity.IsPublished,
-                beatEntity.Description,
-                beatEntity.CoverUrl,
-                user);
-            
-            user.AddBeat(beat);
-        }
+            throw new NotFoundException($"User with id {id} not found");
+        
+        var user = User.Create(userEntity.Id, userEntity.Username,userEntity.Email,
+            userEntity.PasswordHash, userEntity.Role);
         
         return user;
     }
 
     public async Task Update(User user)
     {
+        Log.Information("Updating user with id {userId}...", user.Id);
         await _context.Users
             .Where(u => u.Id == user.Id)
-            .ExecuteUpdateAsync<UserEntity>(u => u
-                .SetProperty(u => u.Username, user.Username)
-                .SetProperty(u => u.PasswordHash, user.PasswordHash)
-                .SetProperty(u => u.Email, user.Email)
-                .SetProperty(u => u.Role, user.Role)
-                .SetProperty(u => u.Balance, user.Balance));
+            .ExecuteUpdateAsync(u => u
+                .SetProperty(userEntity => userEntity.Username, user.Username)
+                .SetProperty(userEntity => userEntity.Email, user.Email)
+                .SetProperty(userEntity => userEntity.Role, user.Role)
+                .SetProperty(userEntity => userEntity.Balance, user.Balance));
         
     }
 
     public async Task<bool> Delete(Guid userId)
     {
-       var result = await _context.Users
+        Log.Warning("Deleting user with id {userId}...", userId);
+        var result = await _context.Users
             .Where(u => u.Id == userId)
             .ExecuteDeleteAsync();
-       if (result == 0)
-            throw new NullReferenceException($"User with id {userId} not found");
+        if (result == 0)
+            throw new NotFoundException($"User with id {userId} not found");
         
-       return true;
+        return true;
     }
 
     public async Task<decimal> GetBalance(Guid userId)
     {
+        Log.Information("Getting balance for user {userId} ...", userId);
         var userEntity = await _context.Users
             .Where(u => u.Id == userId)
             .Select(u => new {u.Balance})
@@ -120,10 +125,11 @@ public class UserRepository(BitstoreDbContext context): IUserRepository
 
     public async Task UpdateBalance(Guid userId, decimal amount)
     {
+        Log.Information("Updating balance for user {userId} ...", userId);
         var updatedCount = await _context.Users
             .Where(u => u.Id == userId)
             .ExecuteUpdateAsync(u => u
-                .SetProperty(u => u.Balance, amount));
+                .SetProperty(userEntity => userEntity.Balance, amount));
         
         if (updatedCount == 0)
             throw new NotFoundException($"User with id {userId} not found");
