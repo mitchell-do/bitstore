@@ -14,45 +14,33 @@ namespace Bitstore.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class BeatController(IBeatService beatService,
-    IUserService userService): Controller
+    IUserService userService, ICurrentUserService currentUserService): Controller
 {
     private readonly IBeatService _beatService = beatService;
     private readonly IUserService _userService = userService;
     
+    [Authorize(Roles = "Admin")]
     [HttpGet("allbeats")]
     public async Task<ActionResult<List<Beat>>> GetAllBeats()
     {
         var beats = await _beatService.GetBeats();
-        var response = beats.Select(b => 
-            new BeatResponse(b.Title, b.Price, b.AudioUrl,
-                b.Description, b.CoverUrl)).ToList();
-        return Ok(response);
+        return Ok(beats);
     }
 
     [HttpGet("user/{userId}")]
-    public async Task<ActionResult<List<Beat>>> GetBeatsByUser(Guid userId)
+    public async Task<ActionResult<List<BeatResponse>>> GetBeatsByUser(Guid userId)
     {
-        var currentUserId = Guid.Parse(User
-            .FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty);
-        if (currentUserId == Guid.Empty)
-        {
-            throw new UnauthorizedAccessException();
-        }
-        var beats = await _beatService.GetBeatsByUser(currentUserId);
-        var response = beats.Select(b => 
-            new BeatResponse(b.Title, b.Price, b.AudioUrl,
-                b.Description, b.CoverUrl)).ToList();
-        return Ok(response);
+        if (userId == Guid.Empty)
+            throw new ArgumentException("User id cannot be empty");
+        
+        var beats = await _beatService.GetBeatsByUser(userId);
+        return Ok(beats);
     }
     
     [HttpPost("addbeat")]
-    public async Task CreateBeat([FromBody] BeatRequest request)
+    public async Task<IActionResult> CreateBeat(BeatRequest request)
     {
-        var currentUserId = Guid.Parse(User
-            .FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty);
-        if (currentUserId == Guid.Empty)
-            throw new UnauthorizedAccessException();
-        
-        await _beatService.CreateBeat(currentUserId, request);
+        await _beatService.CreateBeat(request);
+        return Ok();
     }
 }
