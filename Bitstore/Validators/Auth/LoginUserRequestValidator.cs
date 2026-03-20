@@ -1,9 +1,7 @@
-﻿using System.Data;
-using Bitstore.DTO.Auth;
+﻿using Bitstore.DTO.Auth;
 using FluentValidation;
-using Microsoft.AspNetCore.Identity.Data;
 
-namespace Bitstore.Validators;
+namespace Bitstore.Validators.Auth;
 
 public class LoginUserRequestValidator: AbstractValidator<LoginUserRequest>
 {

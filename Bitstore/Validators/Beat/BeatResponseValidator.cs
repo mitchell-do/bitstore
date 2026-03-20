@@ -1,7 +1,7 @@
 ﻿using Bitstore.DTO.Beat;
 using FluentValidation;
 
-namespace Bitstore.Validators;
+namespace Bitstore.Validators.Beat;
 
 public class BeatResponseValidator: AbstractValidator<BeatResponse>
 {

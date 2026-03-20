@@ -1,7 +1,7 @@
 ﻿using Bitstore.DTO.Auth;
 using FluentValidation;
 
-namespace Bitstore.Validators;
+namespace Bitstore.Validators.Auth;
 
 public class RegisterUserRequestValidator: AbstractValidator<RegisterUserRequest>
 {
